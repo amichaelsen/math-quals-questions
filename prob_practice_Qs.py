@@ -1,4 +1,5 @@
 import random
+# Chapter 1-5 from Durrett's "Probability: Theory and Examples" 5th Edition 
 questions_ch1 = [
     'How do we develop integration for integrable functions? What is the definition of integrable and why is it important?',
     'What are random variables, distribution functions, and probablity measures of random variables?',
@@ -19,11 +20,14 @@ questions_ch2 = [
     'What is the definition of independence?',
     'State the weak law of large numbers (i.i.d.). Sketch a proof.',
     'State the strong law of large numbers. Sketch a proof (you may assume EX^4<infty). What if E|X_i| = infty?',
+    'What are the most general conditions under which the LLNs hold?',
     'What is the Borel-Cantelli Lemma? Prove it. Does the converse hold, if not, what condition(s) need to be added? How do you prove it?',
     'What are some equivalent characterizations of convergence in P?',
     'Consider a sequence of i.i.d. variables Xi, how can we express X_n -> 0 a.s. in terms of a convergence in probability?',
     'What is Kolmogorov\'s 0-1 Law? Give some examples of tail sigma-fields. What is a key idea in the proof?',
-    'State Kolmogorov\'s Maximal Inequality. How does it compare to Chebyshev\'s Inequality?'
+    'State Kolmogorov\'s 0-1 Law. What are tail random variables? Give some examples. What can we say about them from the 0-1 Law?', # hint: they are constants (a.e.)
+    'State Kolmogorov\'s Maximal Inequality. How does it compare to Chebyshev\'s Inequality?',
+
 ]
 
 questions_ch3 = [
@@ -45,7 +49,8 @@ questions_ch4 = [
     'Give a convergence theorem for martingales. How do you prove a.s. convergence? Why do we handle Lp and L1 convergence differently?',
     'What is the connection between martingales and betting (specifically the classic martingale strategy)?',
     'Let X_n be martingale and T be a stopping time. What is true of X_N^n? What if X_n is UI?',
-    'Let X_n be submartingale and let H_n be predictable and N be a stopping time. Show that (H * X)_n and X_N^n are submartingale (you may assume H>=0 where needed).'
+    'Let X_n be submartingale and let H_n be predictable and N be a stopping time. Show that (H * X)_n and X_N^n are submartingale (you may assume H>=0 where needed).',
+    'Use reverse martingale convergence to get the SLLN. Hint: F_{-n} = sigma(S_n, X_{n+1}, X_{n+2}, ...) and check the reverse Martingale condition.'
 ]
 
 questions_ch5 = [
@@ -77,4 +82,19 @@ def pick_prob_questions(n, ch1=True, ch2=True, ch3=True, ch4=True, ch5=True):
     for i, q in enumerate(selected_qs):
         print(str(i+1)+". "+q+"\n")
 
-pick_prob_questions(7, ch4=True, ch5=False, ch1=False, ch2=False, ch3=False)
+def chapter_one(n):
+    pick_prob_questions(n, ch1=True, ch2=False, ch3=False, ch4=False, ch5=False)
+
+def chapter_two(n):
+    pick_prob_questions(n, ch1=False, ch2=True, ch3=False, ch4=False, ch5=False)
+
+def chapter_three(n):
+    pick_prob_questions(n, ch1=False, ch2=False, ch3=True, ch4=False, ch5=False)
+
+def chapter_four(n):
+    pick_prob_questions(n, ch1=False, ch2=False, ch3=False, ch4=True, ch5=False)
+
+def chapter_five(n):
+    pick_prob_questions(n, ch1=False, ch2=False, ch3=False, ch4=False, ch5=True)
+
+pick_prob_questions(10)
